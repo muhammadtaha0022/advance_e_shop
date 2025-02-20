@@ -50,3 +50,11 @@
 
 # lecture #26
 * if loop in django template
+# lecture #27
+* add code in github
+# lecture #28
+* create cart
+# lecture #29
+* cart models and admin handle
+# lecture #31
+* getting item in quanity 
