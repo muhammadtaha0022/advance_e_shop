@@ -12,3 +12,5 @@ class CategoryAdmin(admin.ModelAdmin):
 
     # 🔹 Show save button on top
     save_on_top = True
+    
+    

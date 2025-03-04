@@ -9,18 +9,12 @@ class AccountAdmin(UserAdmin):
     list_display_links=('email', 'first_name','last_name')
     readonly_fields = ('last_login','data_joined' ,'is_active')
     ordering = [ '-data_joined']
+    search_fields = ('username',)
     list_filter =()
     fieldsets =()
-        # 🔹 Set pagination (users per page)
     list_per_page = 20
-
-    # 🔹 Show save button on top
     save_on_top = True
 admin.site.register(Account,AccountAdmin)
-
-
-
-from django.contrib import admin
 
 admin.site.site_header = "Great Kart"
 admin.site.site_title = "We shop"

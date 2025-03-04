@@ -46,15 +46,40 @@
 # lecture #20 
 * serch categoor ob click
 # lecture #21
-
-
+* show all prodct in store 
+* add side category list dynamically 
+# lecture #22
+* add single product detail page 
+# lecture #23 and 24
+* logo click 
+* store click button
+* and prdoct name and image click to open detail page 
+# lecture #25
+* add banner image 
 # lecture #26
-* if loop in django template
+* showing out of stock using if tag 
 # lecture #27
 * add code in github
 # lecture #28
 * create cart
 # lecture #29
 * cart models and admin handle
+# lecture #30
+* crate cart session id
 # lecture #31
-* getting item in quanity 
+* getting item in quanity and price
+# lecture #32
+* print cart data in cart page
+# lecture #33
+* calculate tax and grand total 
+# lecture #36
+* cart url name dynamically
+* continue shoppig
+# lecture #38
+* handle cart counter
+# lecture #39
+* handle store view detail page 
+# lecture #40
+* pagenator
+# lecture #41
+* pagenation dynamically

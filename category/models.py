@@ -5,12 +5,12 @@ from django.urls import reverse
 
 class Category(models.Model):
     category_name = models.CharField(max_length=100, unique=True, verbose_name="Category Name")
-    slug = models.SlugField(max_length=100, unique=True, blank=True, verbose_name="URL Slug")
-    parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children', verbose_name="Parent Category")
-    description = models.TextField(blank=True, null=True, verbose_name="Category Description")
-    cat_image = models.ImageField(upload_to='photo/categories', blank=True, null=True, verbose_name="Category Image")
-    created_at = models.DateField(auto_now_add=True, verbose_name="Created At")
-    updated_at = models.DateField(auto_now=True, verbose_name="Updated At")
+    slug          = models.SlugField(max_length=100, unique=True, blank=True, verbose_name="URL Slug")
+    parent        = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children', verbose_name="Parent Category")
+    description   = models.TextField(blank=True, null=True, verbose_name="Category Description")
+    cat_image     = models.ImageField(upload_to='photo/categories', blank=True, null=True, verbose_name="Category Image")
+    created_at    = models.DateField(auto_now_add=True, verbose_name="Created At")
+    updated_at    = models.DateField(auto_now=True, verbose_name="Updated At")
 
     class Meta:
         verbose_name = "Category"
