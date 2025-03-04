@@ -83,3 +83,5 @@
 * pagenator
 # lecture #41
 * pagenation dynamically
+# lecture #42
+* solve cart error 
