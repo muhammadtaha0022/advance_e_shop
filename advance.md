@@ -85,3 +85,7 @@
 * pagenation dynamically
 # lecture #42
 * solve cart error 
+# lecture #44
+* product variation 
+# lecture #44
+* product variation color and size by filter

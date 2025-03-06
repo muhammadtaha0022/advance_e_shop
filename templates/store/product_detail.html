@@ -24,8 +24,9 @@
 
               <!-- form new  -->
 
-      <form action="{% url 'add_cart' single_product.id %}" method="GET">       
-      <article class="content-body">
+      <form action="{% url 'add_cart' single_product.id %}" method="POST">       
+     {% csrf_token %} 
+     <article class="content-body">
       
       <h2 class="title">{{single_product.product_name}}</h2>
       
@@ -40,10 +41,11 @@
           <div class="row">
               <div class="item-option-select" >
                   <h6>Choose Color</h6>
-                <select name="color" class="form-control" >
-                  <option value="red">red</option>
-                  <option value="yellow">yellow</option>
-                  <option value="green">green</option>
+                <select name="color" class="form-control" required>
+                  <option value="" disabled selected>Select</option>
+                    {% for i in single_product.variation_set.colors %}
+                  <option value="{{i.variation_value | lower}}">{{i.variation_value | capfirst}}</option>
+                    {% endfor %}
 
                 </select>
               </div>
@@ -51,31 +53,36 @@
           <div class="row">
               <div class="item-option-select">
                   <h6>Select Size</h6>
-                  <select name="size" class="form-control" >
-                    <option value="small">small</option>
-                    <option value="medium">medium</option>
-                    <option value="large">large</option>
-                    <option value="blue">blue</option>
+                  <select name="size" class="form-control"required>
+                  <option value="" disabled selected>Select</option>
+                    {% for i in single_product.variation_set.sizes %}
+                    <option value="{{i.variation_value | lower }}">{{i.variation_value | capfirst}}</option>
+                      {% endfor %}
   
                   </select>
 
               </div>
           </div> <!-- row.// -->
           <hr>
-          {% if single_product.stock  <= 0 %}
-          <h4 class='text-danger'>Out of stock</h4>
-      {% else %}
-        {% if in_cart %}
-      <a href="#" class="btn btn-success"><span class="text">Add to cart</span><i class="fas fa-check"></i></a>
-      <a href="{% url 'cart' %}" class="btn btn-outline-primary "><span class="text">View cart</span><i class="fas fa-eye"></i></a>
-        {% else %}
-          <button type="submit"  class="btn btn-primary"> 
-              <span class="text">Add to cart</span> 
-              <i class="fas fa-shopping-cart"></i>  
-          </button>
-        {% endif %}
-      {% endif %}
+          <!-- {% if single_product.stock  <= 0 %} -->
+          <!-- <h4 class='text-danger'>Out of stock</h4> -->
+         <!-- {% else %}
+        {% if in_cart %}  -->
+      <!-- <a href="#" class="btn btn-success"><span class="text">Add to cart</span><i class="fas fa-check"></i></a> -->
+      <!-- <a href="{% url 'cart' %}" class="btn btn-outline-primary "><span class="text">View cart</span><i class="fas fa-eye"></i></a> -->
+        <!-- {% else %} -->
+        <!-- <button type="submit"  class="btn btn-primary"><span class="text">Add to cart</span><i class="fas fa-shopping-cart"></i></button> -->
+        <!-- {% endif %} -->
+        <!-- {% endif %} -->
       
+
+        {% if single_product.stock <= 0 %}
+        <h5 class="text-danger">Out of Stock</h5>
+        {% else %}
+        <button type="submit" class="btn  btn-primary"> <span class="text">Add to Cart</span> <i class="fas fa-shopping-cart"></i> </button>
+        {% endif %}
+
+
           </article> <!-- product-info-aside .// -->
     </form>
             </main> <!-- col.// -->
